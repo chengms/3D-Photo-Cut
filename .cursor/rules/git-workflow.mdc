@@ -1,5 +1,66 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+# Git 工作流规范
+
+## 🔄 提交流程
+1. 修改代码
+2. 确保代码无TypeScript错误
+3. 立即提交更改
+4. 尝试推送到远程仓库
+5. **不检查提交状态** - 继续下一个任务
+
+## 📝 提交信息规范
+
+### 提交类型
+- `feat:` 新功能
+- `fix:` 修复bug
+- `docs:` 文档更新
+- `style:` 代码格式调整
+- `refactor:` 代码重构
+- `test:` 测试相关
+- `chore:` 构建工具或辅助工具的变动
+- `i18n:` 国际化相关
+
+### 提交信息格式
+```
+<type>: <description>
+
+[optional body]
+```
+
+### 示例
+```bash
+git commit -m "feat: 添加语言切换功能"
+git commit -m "fix: 修复Tailwind CSS配置问题"
+git commit -m "i18n: 添加中英文翻译文件"
+```
+
+## ⚡ 快速提交命令
+```bash
+# 添加所有文件并提交
+git add . && git commit -m "描述信息"
+
+# 推送到远程仓库
+git push origin main
+```
+
+## 🚫 禁止操作
+- 不要检查 `git status` 来确认提交状态
+- 不要等待推送完成确认
+- 不要回滚或修改已提交的内容
+- 不要创建分支，直接在main分支工作
+
+## 📋 文件管理
+- 自动忽略不必要的文件 (通过 [.gitignore](mdc:.gitignore))
+- 确保所有源代码文件都被跟踪
+- 不提交 `.env.local` 等敏感配置文件
+
+## 🎯 目标
+- 保持代码变更的快速迭代
+- 减少等待时间，提高开发效率
+- 确保每次修改都有记录
+- 保持代码仓库的整洁性
+
