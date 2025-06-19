@@ -1,0 +1,81 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 3D照片风格化平台开发规范
+
+## 🌍 国际化要求
+- 网站必须支持中英文双语切换
+- 默认语言为英文
+- 所有用户界面文本都需要国际化处理
+- 使用 next-intl 或类似的国际化库
+- 语言切换组件放在 [src/components/ui/language-switcher.tsx](mdc:src/components/ui/language-switcher.tsx)
+- 翻译文件存放在 `src/locales/` 目录下
+
+## 🔧 代码修改原则
+- 只修改有问题的具体代码，其他代码保持不变
+- 除非需要修改整体框架，否则不改动代码架构
+- 修改完成且无错误后立即提交代码
+- 提交后尝试推送，不再检查提交状态
+
+## 📁 目录结构规范
+严格按照以下目录结构放置文件：
+
+### 页面组件
+- 主页面: [src/app/page.tsx](mdc:src/app/page.tsx)
+- 布局组件: [src/app/layout.tsx](mdc:src/app/layout.tsx)
+- 认证页面: `src/app/(auth)/` 目录
+- 仪表板: `src/app/(dashboard)/` 目录
+
+### 组件分类
+- UI基础组件: `src/components/ui/` 
+- 布局组件: `src/components/layout/`
+- 页面区块: `src/components/sections/`
+- 模板相关: `src/components/templates/`
+- 上传功能: `src/components/upload/`
+- 处理状态: `src/components/processing/`
+
+### API路由
+- 模板API: [src/app/api/templates/route.ts](mdc:src/app/api/templates/route.ts)
+- 上传API: `src/app/api/upload/`
+- 处理API: `src/app/api/process/`
+- 认证API: `src/app/api/auth/`
+
+### 工具和类型
+- 工具函数: [src/lib/utils.ts](mdc:src/lib/utils.ts)
+- Supabase配置: [src/lib/supabase.ts](mdc:src/lib/supabase.ts)
+- 类型定义: [src/types/index.ts](mdc:src/types/index.ts)
+- 数据库类型: [src/types/database.ts](mdc:src/types/database.ts)
+
+## 🎨 样式规范
+- 使用 Tailwind CSS 进行样式开发
+- 全局样式定义在 [src/app/globals.css](mdc:src/app/globals.css)
+- 配置文件: [tailwind.config.js](mdc:tailwind.config.js)
+- 响应式设计优先，确保移动端适配
+
+## 🚀 开发流程
+1. 修改代码
+2. 确保没有TypeScript错误
+3. 测试功能正常
+4. 提交代码 (`git add . && git commit -m "描述"`)
+5. 推送代码 (`git push`)
+6. 不检查提交状态，直接继续开发
+
+## 🔒 技术栈限制
+- 前端: Next.js 14 + TypeScript + Tailwind CSS
+- 后端: Supabase + Cloudflare Workers
+- AI服务: Replicate API
+- 不随意更换技术栈，保持架构稳定性
+
+## 💬 沟通规范
+- 所有回答和文档使用中文
+- 代码注释可以使用英文
+- Git提交信息使用中文或英文都可以
+- 变量命名使用英文
+
+## 📦 依赖管理
+- 使用 npm 管理依赖
+- 新增依赖前确认必要性
+- 保持 [package.json](mdc:package.json) 整洁
+- 及时更新安全漏洞依赖
